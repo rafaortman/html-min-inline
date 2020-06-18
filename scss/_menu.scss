@@ -1,0 +1,81 @@
+#menuBt {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    position: relative;
+    display: none;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    .stripes {
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 30px;
+        width: 100%;
+        transition: all 0.2s;
+
+        .stripe {
+            background-color: black;
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 4px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 1px;
+            transition: all 0.3s;
+
+            &.stripe-top {
+                top: 2px;
+            }
+
+            &.stripe-x1 {
+                top: 13px;
+            }
+
+            &.stripe-x2 {
+                bottom: 13px;
+            }
+
+            &.stripe-bot {
+                bottom: 2px;
+            }
+        }
+    }
+
+    &.ativo {
+        .stripe-top {
+            top: 36px;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .stripe-x1 {
+            transform: rotate(45deg);
+            transition: transform 0.3s 0.1s;
+        }
+
+        .stripe-x2 {
+            transform: rotate(-45deg);
+            transition: transform 0.3s 0.1s;
+        }
+
+        .stripe-bot {
+            bottom: 35px;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+    }
+    @media(max-width: 750px) {
+        display: block;
+    }
+}
